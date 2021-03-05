@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: url("images/bg-intro-desktop.png"), hsl(0, 100%, 74%);
+}
+
+
+/* GRID SET UP */
+.grid-container {
+  /* border: 1px solid red; */
+  height: 500px;
+  width: 900px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". try-it"
+    ". register"
+    "description register"
+    "description register"
+    "description register"
+    ". register"
+    ". register";
+}
+
+.description {
+  grid-area: description;
+  /* border: 1px solid blue; */
+}
+
+.try-it {
+  grid-area: try-it;
+  /* border: 1px solid black; */
+}
+
+.register {
+  grid-area: register;
+  /* border: 1px solid green; */
+}
+
+
+/* DESCRIPTION */
+.description-heading {
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.description-text {
+  font-size: 13.5px;
+  padding-right: 20px;
+}
+
+
+/* TRY IT */
+.try-it {
+  display: flex;
+  align-items: center;
+}
+
+.try-it-text {
+  background-color: hsl(248, 32%, 49%) ;
+  border-radius: 6.5px;
+  padding: 13.5px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: lighter;
+  box-shadow: 0px 7px 2px rgba(0,0,0,0.16);
+}
+
+.try-it-text-strong {
+  font-weight: 500;
+}
+
+
+/* REGISTER */
+.register {
+  display: flex;
+  align-items: center;
+}
+
+.register-form {
+  height: 98%;
+  width: 100%;
+  background-color: white;
+  border-radius: 6.5px;
+  color: black;
+  box-shadow: 0px 7px 2px rgba(0,0,0,0.16);
+  padding: 25px;
+}
+
+.field {
+  width: 100%;
+  height: 40px;
+  margin: 12px 0;
+  border-radius: 6.5px;
+}
+
+input.field {
+  padding: 20px;
+  margin-bottom: 17px;
+  font-size: 12px;
+  border: 1px solid hsl(246, 25%, 77%);
+}
+
+input.field:focus {
+  outline: none;
+  border: 1px solid hsl(248, 32%, 49%);
+}
+
+.button-field {
+  border: none;
+  background-color: hsl(154, 59%, 51%);
+  color: white;
+  font-size: 12px;
+  border: 1.2px solid hsl(154, 59%, 45%);
+}
+
+.button-field:hover {
+  cursor: pointer;
+  background-color: hsl(154, 59%, 65%);
+}
+
+.button-field:focus {
+  outline: none;
+}
+
+.disclaimer {
+  display: block;
+  font-size: 9px;
+  color: hsl(246, 25%, 77%);
+  text-align: center;
+  font-weight: 500;
+}
+
+.terms {
+  color: red;
+  text-decoration: none;
+}
+
+
+/* FAILED VALIDATION */
+.input-field {
+  position: relative;
+}
+
+.input-field i {
+  color: hsl(0, 100%, 74%);
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px;
+
+  visibility: hidden;
+}
+
+.failed-text {
+  font-size: 9.75px;
+  color: hsl(0, 100%, 74%);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  visibility: hidden;
+}
+
+.failed i, .failed .failed-text{
+  visibility: visible;
+}
+
+.failed input {
+  border: 1px solid hsl(0, 100%, 74%);
+}
+
+
+/* MEDIA QUERIES */
+@media (hover: hover) and (pointer: fine) {
+  .button-field:hover {
+    background-color: hsl(154, 59%, 51%);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .grid-container {
+    height: 100%;
+    margin: 40px 25%;
+    grid-template-columns: 1fr;
+    grid-template-rows: .01fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "description"
+      "description"
+      "description"
+      "try-it"
+      "register"
+      "register"
+      "register"
+      "register"
+      "register";
+  }
+
+  .description-heading {
+    text-align: center;
+    font-size: 35px;
+  }
+
+  .description-text {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .try-it-text {
+    padding: 13.5px 20px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .grid-container {
+    grid-template-rows: .2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 40px 5%;
+  }
+
+  .description-heading {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .description-text {
+    font-size: 13px;
+    padding-right: 20px;
+  }
+
+  .disclaimer {
+    font-size: 11px;
+  }
+}
